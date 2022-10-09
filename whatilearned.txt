@@ -1,0 +1,13 @@
+'location=no' 打开新窗口
+mate 标签中 `initial-scale=1.0 user-scalable=0`禁止缩放
+
+css 中
+attr(text);
+
+-   渐变色彩
+    -webkit-mask: linear-gradient(to right, transparent, orange);
+
+background-image: linear-gradient(to right, orange, purple);
+-webkit-background-clip: text;
+color: transparent;
+font-size: 30px;

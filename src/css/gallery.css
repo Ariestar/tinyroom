@@ -1,0 +1,59 @@
+#pages.gallery {
+
+}
+#pages.gallery:hover {
+}
+#pages.gallery .item {
+    /* width: 30%;
+    height: 90%;
+    box-shadow: var(--box-shadow) inset;
+    border-radius: var(--radius);
+    background-color: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+    -webkit-border-radius: var(--radius); */
+}
+#pages.gallery:hover .item:hover {
+    /* box-shadow: inherit;
+    transform: scale(1.07);
+    transition: transform 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out;
+    -ms-transition: transform 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out;
+    -webkit-transform: scale(1.07);
+    -moz-transform: scale(1.07);
+    -ms-transform: scale(1.07);
+    -o-transform: scale(1.07); */
+}
+
+
+#pages.gallery .prev, 
+#pages.gallery .next {
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    background-color: transparent;
+    z-index: 2;
+    overflow: hidden;
+}
+#pages.gallery .prev:hover, 
+#pages.gallery .next:hover {
+    background-color: rgba(255, 255, 255, 0.055);
+    transition: background-color 0.1s ease-out;
+    -webkit-transition: background-color 0.1s ease-out;
+    -moz-transition: background-color 0.1s ease-out;
+    -ms-transition: background-color 0.1s ease-out;
+    -o-transition: background-color 0.1s ease-out;
+}
+
+#pages.gallery .prev{
+    left: 0;
+}
+#pages.gallery .next{
+    right: 0;
+}

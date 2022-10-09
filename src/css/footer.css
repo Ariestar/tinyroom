@@ -1,0 +1,91 @@
+/* footer */
+#footer {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+   
+	width: 100%;
+	height: 7%;
+	position: relative;
+	z-index: -1;
+}
+#footer .signature {
+	bottom: 0%;
+	font-size: 2.5vh;
+	font-family: Josefin Sans, sans-serif;
+	font-style: italic;
+	margin: 0 1vh;
+}
+#footer.day {
+	color: #000000;
+}
+#footer.night {
+	color: #ffffff;
+}
+#footer .iconfont {
+	font-size: 2.5vh;
+}
+#footer .icon-code {
+	font-size: 2.5vh;
+	color: royalblue;
+}
+#footer .icon-aixin {
+	font-size: 2.5vh;
+	color: #ff0000;
+}
+#footer .icon-zhixie {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 2.1vh;
+}
+#footer .icon-huifu {
+	display: inline-block;
+	cursor: pointer;
+}
+#footer .icon-zhixie::before,
+#footer .icon-huifu::before {
+	transition: text-shadow 0.2s linear;
+	-webkit-transition: text-shadow 0.2s linear;
+	-moz-transition: text-shadow 0.2s linear;
+	-ms-transition: text-shadow 0.2s linear;
+	-o-transition: text-shadow 0.2s linear;
+}
+#footer .icon-zhixie:hover::before,
+#footer .icon-huifu:hover::before {
+	text-shadow: 0.1vmax 0.1vmax 2px gold;
+}
+#footer .myself {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+}
+#footer .myself::before {
+	content: "";
+	position: absolute;
+	transform: scaleX(0);
+	transition: transform 0.3s ease-out;
+	background: #ff0000;
+	z-index: -1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-transform: scaleX(0);
+	-moz-transform: scaleX(0);
+	-ms-transform: scaleX(0);
+	-o-transform: scaleX(0);
+	-webkit-transition: transform 0.3s ease-out;
+	-moz-transition: transform 0.3s ease-out;
+	-ms-transition: transform 0.3s ease-out;
+	-o-transition: transform 0.3s ease-out;
+}
+#footer .myself:hover::before {
+	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	-moz-transform: scaleX(1);
+	-ms-transform: scaleX(1);
+	-o-transform: scaleX(1);
+}

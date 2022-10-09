@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="./p5.min.js"></script>
+		<script src="./p5.sound.min.js"></script>
+		<title>test</title>
+	</head>
+	<body>
+		<style>
+			html,
+			body {
+				height: 100%;
+			}
+
+			body {
+				margin: 0;
+				display: flex;
+
+				/* This centers our sketch horizontally. */
+				justify-content: center;
+
+				/* This centers our sketch vertically. */
+				align-items: center;
+			}
+		</style>
+		<script>
+			let audio,
+				img,
+				amplitude,
+				buf = new Array();
+			function preload() {
+				audio = loadSound("01 恋×シンアイ彼女 メインテーマ.flac");
+				img = loadImage("image.png");
+			}
+
+			function setup() {
+				amplitude = new p5.Amplitude();
+
+				background(60);
+				noStroke();
+				createCanvas(img.width, img.height);
+			}
+
+			function draw() {
+				let level = amplitude.getLevel();
+				leaf_arr(level);
+			}
+			function mouseClicked() {
+				if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+					audio.isPlaying() ? audio.stop() : audio.play();
+
+					// console.log(audio.isPlaying());
+				}
+			}
+
+			function leaf_arr(volume) {
+				var w = img.width,
+					h = img.height;
+				var centerX = w *1/3, // centerX,Y可以设置中心位置
+					centerY = h *1/3,
+					goldenRatioAngle = Math.sqrt(5) - 1,
+					id = 1,
+					radius = 1,
+					initDiameter = 2,
+                    distance;
+				buf.push(volume);
+				if (buf.length > 550) {
+					buf.shift();
+				}
+				// console.log(buf);
+				background(255);
+				 
+				// h除以的数可以设置圆圈半径，比如这里指半径为1/3的高度，h换成w也可以以宽度作为参照
+				while (radius <= h / 3) {
+					let radiusStep,
+                        angle,
+                        round;
+					angle = goldenRatioAngle * id * Math.PI;
+                    
+					// 用上面这个不会随音乐响度伸缩变化，下面的会
+					// map函数可以设置映射区间 volume的取值映射到最后两个参数之间，volume值0-1
+					// radiusStep是粒子之间距离（可以这么理解），越小越密
+					// radiusStep = map(volume, 0, 1, 3.5, 15); //这个后两个参数，就是radiusStep的映射区间，自行理解
+                    radiusStep = 2.6
+
+					// radiusStep = (radiusStep * 20001) / 20000;
+					radius = sqrt(id) * radiusStep;
+                    round = Math.round(Math.round(radius/7)) // 这个数字可以调波纹扩散速度，数字越大越快
+                    
+					if (buf.length > round) {
+						distance = buf[buf.length-round];
+						// console.log(distance);
+					}
+					x = centerX + radius * Math.cos(angle);
+					y = centerY + radius * Math.sin(angle);
+					color = img.get(Math.round(x), Math.round(y));
+					fill(color);
+					bright = brightness(color);
+					diameter = map(bright, 255, 150, 1, (initDiameter*1+distance*2)); // distance和initDiameter相乘的数字可以调整图画的色彩和声音两者决定圆圈大小的权重
+					circle(x, y, diameter); // 不一定要画圆，也可以画其他图案
+					id++;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,92 @@
+#pages .project {
+	box-sizing: border-box;
+	position: relative;
+	display: flex;
+	border-radius: var(--radius);
+	align-content: stretch;
+	align-items: center;
+	justify-items: center;
+	padding-top: 2.5rem;
+	transition: transform var(--trans-time) linear;
+	-webkit-transition: transform var(--trans-time) linear;
+	-moz-transition: transform var(--trans-time) linear;
+	-ms-transition: transform var(--trans-time) linear;
+	-o-transition: transform var(--trans-time) linear;
+	-webkit-border-radius: var(--radius);
+	-moz-border-radius: var(--radius);
+	-ms-border-radius: var(--radius);
+	-o-border-radius: var(--radius);
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+#pages .project .item {
+	box-sizing: border-box;
+	position: relative;
+	display: flex;
+	padding-left: 2em;
+	padding-right: 9em;
+	margin: 0.5em 2em;
+	height: 6em;
+	width: 97%;
+	font-size: large;
+	border-radius: 2em;
+	border: 0.3em solid #d9cbcb;
+	background-color: #ffffff;
+	text-decoration: none;
+	overflow: hidden;
+	font-weight: 900;
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	-ms-border-radius: 2em;
+	-o-border-radius: 2em;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+#pages .project .item:hover {
+	background-color: #000;
+	color: #000;
+
+	box-shadow: 0.4em 0.5em 0px #751f9a;
+	border-color: #635fa0;
+	transition: box-shadow 300ms ease-out;
+	-webkit-transition: box-shadow 300ms ease-out;
+	-moz-transition: box-shadow 300ms ease-out;
+	-ms-transition: box-shadow 300ms ease-out;
+	-o-transition: box-shadow 300ms ease-out;
+}
+#pages .project .item:hover .readmore {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: x-large;
+	transition: width 100ms ease-in;
+	-webkit-transition: width 100ms ease-in;
+	-moz-transition: width 100ms ease-in;
+	-ms-transition: width 100ms ease-in;
+	-o-transition: width 100ms ease-in;
+}
+#pages .project .item .readmore {
+	position: absolute;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 10em;
+	height: 3em;
+	font-size: medium;
+	color: #fff;
+	bottom: 0;
+	right: 0;
+	border-radius: 1rem 0;
+	background-color: #000;
+	-moz-border-radius: 1rem 0;
+	-ms-border-radius: 1rem 0;
+	-o-border-radius: 1rem 0;
+}
+
+#project .next-page {
+	
+}

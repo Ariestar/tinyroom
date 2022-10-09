@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0  user-scalable=0" />
+		<title>To The Moon</title>
+
+		<link
+			rel="stylesheet"
+			type="text/css"
+			as="style"
+			href="src/css/index.css"
+			rel="preload"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_2374350_8yvgij89h0c.css" />
+		<link rel="shortcut icon" href="src/images/favicon.ico" />
+
+		<script type="module" src="src/scripts/loading.js"></script>
+		<script src="https://unpkg.com/scrollreveal" rel='preload' as="sripts"></script>
+
+		<script
+			rel="preload"
+			as="sripts"
+			src="https://code.jquery.com/jquery-3.6.1.min.js"
+			integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js" async></script>
+		<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+		<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+		<script type="module" src="src/scripts/background.js" async></script>
+	</head>
+
+	<body class="weatherable">
+		<ul id="nav" class="weatherable"></ul>
+
+		<div id="music-box">
+			<i class="iconfont icon-music-rf weatherable" id="music-icon">
+				<audio id="music" preload="metadata"></audio>
+			</i>
+			<span class="music-notes weatherable">
+				<i class="iconfont icon-yinfu"></i>
+				<i class="iconfont icon-yinfu1"></i>
+				<i class="iconfont icon-yinfu2"></i>
+			</span>
+		</div>
+
+		<nav id="selectionbar" class="hide">
+			<!-- <div id="LM">
+				<input type="checkbox" id="lm" />
+				<label for="lm" class="toggle">
+					<span class="toggle-handler"></span>
+				</label>
+			</div>
+
+			<div id="MA">
+				<input type="checkbox" id="ma" />
+				<label for="ma" class="toggle">
+					<span class="toggle-handler">
+						<i class="iconfont icon-musiclink"></i>
+					</span>
+				</label>
+			</div> -->
+
+			<div id="DN">
+				<input type="checkbox" class="dn" id="dn" />
+				<label for="dn" class="toggle">
+					<span class="toggle-handler">
+						<span class="crater crater--1"></span>
+						<span class="crater crater--2"></span>
+						<span class="crater crater--3"></span>
+					</span>
+					<span class="star star--1"></span>
+					<span class="star star--2"></span>
+					<span class="star star--3"></span>
+					<span class="star star--4"></span>
+					<span class="star star--5"></span>
+					<span class="star star--6"></span>
+				</label>
+			</div>
+		</nav>
+
+		<header>
+			<div id="logo" class="weatherable">
+				<a href="/" class="content">Tiny Room</a>
+			</div>
+
+			<div id="time" class="weatherable"></div>
+		</header>
+
+		<main id="pages">
+			<section class="gallery" class="weatherable">
+				<div class="prev"></div>
+				<div class="next"></div>
+			</section>
+
+			<section class="main">
+				<!-- <div id="#backgroundImage"></div> -->
+				<div id="title" class="weatherable"></div>
+				<div class="title-shadow"></div>
+			</section>
+			<section class="project">
+				<div class="wrapper"></div>
+			</section>
+		</main>
+
+		<footer id="footer" class="weatherable">
+			<a href="reply.html" target="_blank"><i class="iconfont icon-huifu"></i></a>
+			<div class="signature">
+				<i class="iconfont icon-code"></i> with <i class="iconfont icon-aixin"></i> by
+				<a class="myself">ANDREWS</a>
+			</div>
+			<a href="thanks-letter.html" target="_blank"><i class="iconfont icon-zhixie"></i></a>
+		</footer>
+
+		<!-- <script src="./dist/index.js"></script> -->
+
+		<script type="module" src="src/scripts/index.js"></script>
+		<script type="module" src="src/scripts/tools.js"></script>
+		<script type="module" src="src/scripts/init.js" async></script>
+		<script type="module" src="src/scripts/music.js" async></script>
+		<script type="module" src="src/scripts/title.js" async></script>
+		<script type="module" src="src/scripts/scroll.js" async></script>
+		<script type="module" src="src/scripts/selectionbar.js" async></script>
+		<script type="module" src="src/scripts/shortcutKey.js" async></script>
+		<script type="module" src="src/scripts/page.js" async></script>
+	</body>
+</html>

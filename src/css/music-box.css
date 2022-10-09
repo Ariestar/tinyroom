@@ -1,0 +1,84 @@
+/* music */
+#music-box {
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    width: 3em;
+    height: 3em;
+    z-index: 1;
+}
+#music-icon {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    animation: music-spinning 7s infinite linear;
+    font-size: 2em;
+    transition: text-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transition: text-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: text-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: text-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: text-shadow 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-animation: music-spinning 7s infinite linear;
+}
+#music-icon::before {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+#music-icon.running {
+    animation-play-state: running;
+    text-shadow: 0 0 1vmax #00CC33;
+    -webkit-text-stroke: 0.15vmax #00CC33;
+}
+#music-icon.paused {
+    animation-play-state: paused;
+    text-shadow: 0 0 1.5vmax #FF0000;
+    -webkit-text-stroke: 0.15vmax#FF0000;
+}
+#music-box .music-notes {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+#music-box .music-notes>.iconfont {
+    opacity: 0;
+    position: absolute;
+    display: inline-block;
+    font-size: 1em;
+    margin-left: 50%;
+    margin-top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+#music-box .next{
+    position: relative;
+    left: 70%;
+    bottom: 50%;
+}
+
+#music-box:hover {
+    transform: scale(1.1);
+    transition: transform 100ms linear;
+    cursor: pointer;
+    -webkit-transition: transform 100ms linear;
+    -moz-transition: transform 100ms linear;
+    -ms-transition: transform 100ms linear;
+    -o-transition: transform 100ms linear;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}

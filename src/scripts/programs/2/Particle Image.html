@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>particle image</title>
+</head>
+<style>
+    body, html {
+        height: 100%;
+        background-color: #000;
+    }
+    #canvas {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+}
+</style>
+<body>
+    <div>
+        <input type="range" step="100" name="number" id="number"><br>
+        <input type="range" step="0.1" name="size" id="size"><br>
+        <input type="range" step="0.01" max="1" min="0" name="fade-1" id="fade-1"><br>
+        <input type="range" step="0.01" max="1" min="0" name="fade-2" id="fade-2"><br>
+        
+    </div>
+    <script>
+        // function getVal(v) {
+        //     console.log(v);
+        // }
+    </script>
+    <canvas id="canvas"></canvas>
+    <script src="particle-image.js" type="module"></script>
+</body>
+</html>
