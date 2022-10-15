@@ -250,14 +250,13 @@ export function throttle(func, wait, options) {
 	if (!options) options = {};
 
 	var later = function () {
-		previous = options.leading === false ? 0 : _.now();
+		previous = options.leading === false ? 0 : Date.now();
 		timeout = null;
 		result = func.apply(context, args);
-		if (!timeout) context = args = null; //显示地释放内存，防止内存泄漏
 	};
 
 	var throttled = function () {
-		var now = _.now();
+		var now = Date.now();
 		if (!previous && options.leading === false) previous = now;
 		var remaining = wait - (now - previous);
 		context = this;
@@ -269,18 +268,15 @@ export function throttle(func, wait, options) {
 			}
 			previous = now;
 			result = func.apply(context, args);
-			if (!timeout) context = args = null;
 		} else if (!timeout && options.trailing !== false) {
 			timeout = setTimeout(later, remaining);
 		}
 		return result;
 	};
-
 	throttled.cancel = function () {
 		clearTimeout(timeout);
 		previous = 0;
 		timeout = context = args = null;
 	};
-
 	return throttled;
 }

@@ -1,5 +1,5 @@
 import { page } from "./data.js";
-import { project } from "./data.js";
+import { throttle } from "./tools.js";
 
 let current = page.default;
 const n = page.count;
@@ -8,26 +8,32 @@ const pages = document.querySelector("#pages");
 changePage();
 pages.addEventListener(
 	"wheel",
-	event => {
-		console.log(event);
-		event.preventDefault();
-		event.stopImmediatePropagation();
-
-		let delta = event.deltaY;
-
-		if (current && typeof current === "number") {
-			if (delta < 0 && current > 1) {
-				// left
-				changePage("pre");
-			} else if (delta > 0 && current < n) {
-				// right
-				changePage("fol");
-			} else if (delta > 0 && current === n) {
-				// showFooter();
-			}
-		}
+	e => {
+		e.preventDefault();
 	},
 	{ passive: false }
+);
+pages.addEventListener(
+	"wheel",
+	throttle(
+		event => {
+			let delta = event.deltaY;
+
+			if (current && typeof current === "number") {
+				if (delta < 0 && current > 1) {
+					// left
+					changePage("pre");
+				} else if (delta > 0 && current < n) {
+					// right
+					changePage("fol");
+				} else if (delta > 0 && current === n) {
+					// showFooter();
+				}
+			}
+		},
+		500,
+		{ trailing: false }
+	)
 );
 
 function changePage(direction) {

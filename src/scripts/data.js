@@ -30,8 +30,9 @@ const data = {
 			"Phyllotaxis",
 			"3D Terrain Generation",
 			"Brownian Tree",
+			""
 		],
-		count: 4,
+		count: 6,
 	},
 };
 
