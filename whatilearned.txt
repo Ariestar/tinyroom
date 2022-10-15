@@ -1,0 +1,83 @@
+'location=no' 打开新窗口
+mate 标签中 `initial-scale=1.0 user-scalable=0`禁止缩放
+
+css 中
+attr(text);
+
+-   渐变色彩
+    -webkit-mask: linear-gradient(to right, transparent, orange);
+
+background-image: linear-gradient(to right, orange, purple);
+-webkit-background-clip: text;
+color: transparent;
+font-size: 30px;
+
+
+broder-image
+background-image
+
+
+
+注意css顺序
+display放在最前
+
+
+- 避免repaint
+用transform
+
+
+- 缓存
+https://www.jianshu.com/p/54cc04190252
+-- localStorage & sessionStorage
+https://zhuanlan.zhihu.com/p/26862338
+
+
+- 字体加载
+https://juejin.cn/post/6909718170215399431
+不要在css中直接import字体url，会阻断加载
+
+colorMode
+HSB HSL RGB
+HSL(色相,饱和度%,亮度%)
+
+
+
+
+
+
+lorenz system
+mitosis simulation
+3d terrain generation
+supershapes
+perlin noise flowfield
+phyllotaxis
+blobby
+animated circle packing
+attraction and repulsion forces
+steering behaviors
+floyd-steinberg dithering
+double pendulum
+brownian tree snowflake
+fluid simulation
+times tables cardioid
+polar noise perlin loops
+
+
+
+--- 
+# webGL与canvas
+如果要处理大量像素点，使用getImageData修改过后再putImageData
+
+# pixi.js
+使用PIXI.extract
+
+
+
+
+
+
+
+
+
+---
+# creative coding

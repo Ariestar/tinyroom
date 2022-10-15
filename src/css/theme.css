@@ -1,0 +1,50 @@
+/* day effect */
+#pomodoro.day,
+#project.day,
+#photograph.day {
+	background-color: #fff;
+	box-shadow: 4px 4px 10px #ccbfc9;
+}
+
+/* night effect */
+#time.night,
+#music-icon.night,
+#logo.night,
+.music-notes {
+	color: var(--white);
+}
+#logo.night:hover,
+#time.night:hover {
+	border-radius: 12px;
+	background-color: #fff;
+	color: #000;
+	box-shadow: 4px 4px 0px #9c9c9c;
+	transition: box-shadow 300ms ease-out;
+	-webkit-transition: box-shadow 300ms ease-out;
+	-moz-transition: box-shadow 300ms ease-out;
+	-ms-transition: box-shadow 300ms ease-out;
+	-o-transition: box-shadow 300ms ease-out;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+}
+#nav.night > *:not(.current-page) {
+	background-color: var(--white);
+}
+#color-switcher .switch-btn.night {
+	fill: var(--white);
+}
+#pomodoro.night,
+#photograph.night,
+#project.night {
+	background-color: #272323;
+	box-shadow: #1a181a 4px 4px 10px;
+}
+
+/* else */
+#title.wrong,
+#time.wrong,
+#music-icon.wrong {
+	color: var(--black);
+}

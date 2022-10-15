@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>3D Terrain Generation</title>
+		<script src="../../libs/p5.min.js"></script>
+	</head>
+	<style>
+		body,
+		html {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	<body>
+		<script>
+			let cols, rows;
+			const scl = 20;
+			let terrain;
+			let flying = 0;
+			let w = 1600;
+			let h = 900;
+            let slider
+			function setup() {
+				// createCanvas(windowWidth, windowHeight, WEBGL);
+				createCanvas(w, h, WEBGL);
+
+				background(0);
+				noFill();
+				stroke(255);
+				cols = Math.floor(w / scl);
+				rows = Math.floor(h / scl);
+				console.log(cols, rows);
+				terrain = Array.from(Array(cols), () => new Array(rows));
+                slider = createSlider(-2000, 0, -700, 1);
+                slider.position(10, 10);
+			}
+			function draw() {
+				background(0);
+				flying -= 0.2;
+				let xoff = 0,
+					yoff = flying;
+				for (let y = 0; y < rows; y++) {
+					xoff = 0;
+					for (let x = 0; x < cols; x++) {
+						terrain[x][y] = noise(xoff, yoff) * 300;
+						xoff += 0.2;
+					}
+					yoff += 0.2;
+				}
+                
+				translate(width / 2, height / 2);
+
+				rotateX(PI / 3);
+                let depth = slider.value();
+				translate(-w, depth, 0 );
+				for (let y = 0; y < rows - 1; y++) {
+					beginShape(TRIANGLE_STRIP);
+					for (let x = 0; x < cols; x++) {
+						vertex(x * scl, y * scl, terrain[x][y]);
+						vertex(x * scl, (y + 1) * scl, terrain[x][y + 1]);
+					}
+					endShape();
+				}
+			}
+		</script>
+	</body>
+</html>

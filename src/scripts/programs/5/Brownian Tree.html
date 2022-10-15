@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>snowflake</title>
+		<!-- <script src="../../libs/p5.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/p5@v1.4.0/lib/p5.js"></script>
+	</head>
+	<body>
+		<script>
+			class Particle {
+				pos;
+				r;
+				c;
+				constructor(_x, _y, _r) {
+					this.pos = new p5.Vector(_x, _y);
+					this.r = _r;
+					this.c = `hsla(${this.#randomColor()}, 100%, 50%, 1)`;
+				}
+				#randomColor() {
+					return Math.floor(noise((color += 0.0015)) * 360);
+				}
+				update(amplitude, directionNum) {
+					this.pos.x -= 1;
+					this.pos.y += random(-amplitude, amplitude);
+					// this.pos.y += noise(color) *10
+					this.pos.y = constrain(this.pos.y, -300, 300);
+					let angle = this.pos.heading();
+					let magnitude = this.pos.mag();
+					angle = constrain(angle, 0, TWO_PI / directionNum);
+					this.pos = p5.Vector.fromAngle(angle);
+					this.pos.setMag(magnitude);
+				}
+				draw() {
+					fill(this.c);
+					ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
+				}
+				finish() {
+					return this.pos.x < 1;
+				}
+				touch() {
+					let flag = false;
+					for (let s of snowflake) {
+						if (dist(this.pos.x, this.pos.y, s.pos.x, s.pos.y) <= this.r + s.r)
+							flag = true;
+					}
+					return flag;
+				}
+			}
+
+			const width = 800;
+			const height = 800;
+
+			let current;
+			let snowflake = [];
+			let x, y, r;
+			let rate = 0.01;
+			let color = Math.random(0, 100);
+			let amplitude = 5;
+			let directionNum = 6;
+			let finished = false;
+
+			function setup() {
+				colorMode(HSL);
+				createCanvas(width, height, WEBGL);
+				background(0);
+				noStroke();
+			}
+			function draw() {
+				frameRate(2000);
+				// translate(width / 2, height / 2);
+				rotate(PI / 6);
+				background(255);
+				if (!finished) {
+					current = new Particle(width / 2, 0, getRandomRadius());
+					while (!current.finish(width) && !current.touch()) {
+						current.update(amplitude, directionNum);
+					}
+					snowflake.push(current);
+				}
+
+				for (let i = 0; i < directionNum; i++) {
+					rotate((PI / directionNum) * 2);
+					for (s of snowflake) {
+						s.draw();
+						if (s.x === width / 2) finished = true;
+					}
+					scale(1, -1);
+					current.draw();
+					for (s of snowflake) {
+						s.draw();
+					}
+					scale(1, -1);
+				}
+			}
+			function getRandomRadius() {
+				return noise((rate += 0.01)) * 4;
+				// return 1;
+			}
+			function keyPressed() {
+				finished = false;
+				color = Math.random(0, 100);
+				snowflake = [];
+				saveFrames("out", "png", 1, 25, data => {
+					print(data);
+				});
+			}
+		</script>
+	</body>
+</html>
